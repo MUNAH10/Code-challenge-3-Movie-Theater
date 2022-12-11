@@ -1,0 +1,17 @@
+{
+  "name": "code-challenge-3",
+  "version": "1.0.0",
+  "description": "Flatiron Movie Theatre",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm start"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "js",
+    "bootstrap"
+  ],
+  "author": "MUNA HASSAN",
+  "license": "ISC"
+}
