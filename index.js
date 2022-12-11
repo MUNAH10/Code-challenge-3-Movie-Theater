@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     }
       function showtime(){
         let dateTime = new Date ()
-        let time =dateTime.toLocalString()
+        let time =dateTime.toLocaleString()
         const times = document.getElementById('times')
         times.innerHTML=`
          ${time}

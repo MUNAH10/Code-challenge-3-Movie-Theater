@@ -1,12 +1,5 @@
 body{
     background-color: #ff69b4;
-
-}
-#dango{
-    color: aqua; 
-    font-size: 7vh;
-    font-family: Times New Roman;
-    font-weight: bold;
 }
 .menu_list{
     color: #fff634;
@@ -60,6 +53,7 @@ h3{
     height: fit-content;
     width: fit-content;
 }
+
 #times{
     margin-left: 60vh;
     font-size: 5vh;
