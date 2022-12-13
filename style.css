@@ -10,7 +10,7 @@ body{
     background-color: #ff69b4;
 }
 #Information{
-    color: deeppink;
+    color: rgb(8, 160, 206);
     font-size: 4.1vh;
     font-family: Times Roman;
     word-spacing: 0vh;
@@ -33,7 +33,7 @@ body{
     border-radius: 100px;
 }
 h3{
-    color: #00ff00;
+    color: #0a0a0a;
     background-color: rgb(246, 248, 248);
     text-align: center;
 }
