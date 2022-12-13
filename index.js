@@ -1,9 +1,9 @@
-const Films_Api = ' http://localhost:3000/films'
+
 document.addEventListener('DOMContentLoaded',()=>{
     // craete movies list
     const menuLists=(names)=>{
         const CardDiv = document.createElement('div')
-        CardDiv.classList.add('card' ,'col-12')
+        CardDiv.classList.add('card','col-12')
         const rowDiv = document.createElement('div')
         rowDiv.classList.add('row')
 
@@ -28,11 +28,12 @@ document.addEventListener('DOMContentLoaded',()=>{
       }
       let display = setInterval(showtime,1)
     // creating funtion of the top most movies
+    const Films_Api = ' http://localhost:3000/films'
     const topMovies = ()=>{
         fetch (Films_Api)
         .then((response)=>response.json())
         .then((data)=>{
-            
+            console.log(data);
             const filmData = data[0];
             const poster  = filmData.poster
             const title = filmData.title
@@ -43,7 +44,7 @@ document.addEventListener('DOMContentLoaded',()=>{
             const availableTickets = +capacity- +tickets_sold
             const soldTickets = +capacity -(+tickets_sold+ +1)
             
-        const information = document.getElementById('Information')
+       // const information = document.getElementById('Information')
         const image = document.getElementById('poster')
             
             information.innerHTML=`
