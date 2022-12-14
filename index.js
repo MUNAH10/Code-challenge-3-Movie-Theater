@@ -112,16 +112,16 @@ document.addEventListener('DOMContentLoaded',()=>{
             `
             image.src=poster
             // adding event listerner to update buying of movies
-            information.querySelector('#btn').addEventListener('click',()=>{
-                information.innerHTML = `
-                <h3 id="info ">Information</h3>
-                <li>Title: ${title}</li>
-            <li>Runtime: ${runtime}</li>
-            <li>Showtime: ${showtime}</li>
-            <li">Available-Tickets: ${soldTickets}</li>
-             <button class="btn btn-primary" type="submit" id = "btn">Buy</button>
-                `   
-               })    
+            // information.querySelector('#btn').addEventListener('click',()=>{
+            //     information.innerHTML = `
+            //     <h3 id="info ">Information</h3>
+            //     <li>Title: ${title}</li>
+            // <li>Runtime: ${runtime}</li>
+            // <li>Showtime: ${showtime}</li>
+            // <li">Available-Tickets: ${soldTickets}</li>
+            //  <button class="btn btn-primary" type="submit" id = "btn">Buy</button>
+            //     `   
+            //    })    
             })
                    
             });
