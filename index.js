@@ -28,24 +28,24 @@ document.addEventListener('DOMContentLoaded',()=>{
       }
       let display = setInterval(showtime,1)
     // creating funtion of the top most movies
-    // const Films_Api = ' https://vercel.com/munah10/code-challenge-3/db.json'
-      const Films_Api = 'http://localhost:3000/films'
+     const Films_Api = 'https://munah10.github.io/deployment/db.json'
+    // const Films_Api = 'http://localhost:3000/films'
     const topMovies = ()=>{
         fetch (Films_Api)
         .then((response)=>response.json())
         .then((data)=>{
             console.log(data);
-            const filmData = data[0];
+            const filmData = data.films[0];
             const poster  = filmData.poster
             const title = filmData.title
             const runtime = filmData.runtime
             const showtime = filmData.showtime
             const tickets_sold =filmData.tickets_sold
             const capacity =filmData.capacity
-            const availableTickets = +capacity- +tickets_sold
-            const soldTickets = +capacity -(+tickets_sold+ +1)
+            let availableTickets = capacity- tickets_sold
+            //const soldTickets = +capacity -(+tickets_sold+ +1)
             
-       // const information = document.getElementById('Information')
+       const information = document.getElementById('Information')
         const image = document.getElementById('poster')
             
             information.innerHTML=`
@@ -53,19 +53,16 @@ document.addEventListener('DOMContentLoaded',()=>{
             <li>Title: ${title}</li>
             <li>Runtime: ${runtime}</li>
             <li>Showtime: ${showtime}</li>
-            <li>Available-Tickets: ${availableTickets}</li>
+            <li id="availableTickets">Available-Tickets: ${availableTickets}</li>
              <button class="btn btn-primary" type="submit" id = "btn">Buy</button>
             `
             image.src=poster
-            information.querySelector('#btn').addEventListener('click',(updateData)=>{
-                information.innerHTML = `
-                <h3 id="info ">Information</h3>
-                <li>Title: ${title}</li>
-            <li>Runtime: ${runtime}</li>
-            <li>Showtime: ${showtime}</li>
-            <li>Available-Tickets: ${soldTickets}</li>
-             <button class="btn btn-primary" type="submit" id = "btn">Buy</button>
-                 `
+            information.querySelector('#btn').addEventListener('click',()=>{
+                const li = information.querySelector('#availableTickets');
+                if(availableTickets > 0){
+                    availableTickets-=1;
+                    li.textContent = `Available-Tickets: ${availableTickets}`;
+                } else li.textContent = `Sold Out!`;
                })    
          })
         }
@@ -75,13 +72,13 @@ document.addEventListener('DOMContentLoaded',()=>{
             fetch(Films_Api)
             .then((response)=>response.json())
             .then((data)=>{
-                data.map(item=>{
+                data.films.map(item=>{
                     const filmsMenu = item.title
                     const menu_lists= document.getElementById('menu_lists')
                     const movies = document.createElement('li')
                     movies.addEventListener('click',()=>{
                         const i = item.id
-                        displays(data[i-1])
+                        displays(item)
                     })
                     movies.innerHTML= `${filmsMenu}`
                     menu_lists.appendChild(movies)
@@ -93,7 +90,7 @@ document.addEventListener('DOMContentLoaded',()=>{
             fetch (Films_Api)
         .then((response)=>response.json())
         .then((data)=>{
-            data.forEach(element => {
+            data.films.forEach(element => {
                 const poster  = filmData.poster
                 const title = filmData.title
                 const runtime = filmData.runtime
@@ -121,7 +118,7 @@ document.addEventListener('DOMContentLoaded',()=>{
                 <li>Title: ${title}</li>
             <li>Runtime: ${runtime}</li>
             <li>Showtime: ${showtime}</li>
-            <li>Available-Tickets: ${soldTickets}</li>
+            <li">Available-Tickets: ${soldTickets}</li>
              <button class="btn btn-primary" type="submit" id = "btn">Buy</button>
                 `   
                })    
