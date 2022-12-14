@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         .then((response)=>response.json())
         .then((data)=>{
             console.log(data);
-            const filmData = data[0];
+            const filmData = data.films[0];
             const poster  = filmData.poster
             const title = filmData.title
             const runtime = filmData.runtime
