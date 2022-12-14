@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded',()=>{
       }
       let display = setInterval(showtime,1)
     // creating funtion of the top most movies
-    const Films_Api = ' https://vercel.com/munah10/code-challenge-3'
+    const Films_Api = ' https://vercel.com/munah10/code-challenge-3/db.json'
     const topMovies = ()=>{
         fetch (Films_Api)
         .then((response)=>response.json())
