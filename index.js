@@ -28,13 +28,14 @@ document.addEventListener('DOMContentLoaded',()=>{
       }
       let display = setInterval(showtime,1)
     // creating funtion of the top most movies
-    const Films_Api = ' https://vercel.com/munah10/code-challenge-3/db.json'
+    // const Films_Api = ' https://vercel.com/munah10/code-challenge-3/db.json'
+      const Films_Api = 'http://localhost:3000/films'
     const topMovies = ()=>{
         fetch (Films_Api)
         .then((response)=>response.json())
         .then((data)=>{
             console.log(data);
-            const filmData = data.films[0];
+            const filmData = data[0];
             const poster  = filmData.poster
             const title = filmData.title
             const runtime = filmData.runtime
@@ -74,7 +75,7 @@ document.addEventListener('DOMContentLoaded',()=>{
             fetch(Films_Api)
             .then((response)=>response.json())
             .then((data)=>{
-                data.films.map(item=>{
+                data.map(item=>{
                     const filmsMenu = item.title
                     const menu_lists= document.getElementById('menu_lists')
                     const movies = document.createElement('li')
@@ -92,7 +93,7 @@ document.addEventListener('DOMContentLoaded',()=>{
             fetch (Films_Api)
         .then((response)=>response.json())
         .then((data)=>{
-            data.films.forEach(element => {
+            data.forEach(element => {
                 const poster  = filmData.poster
                 const title = filmData.title
                 const runtime = filmData.runtime
